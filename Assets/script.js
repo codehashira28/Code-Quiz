@@ -3,6 +3,9 @@ var submitbtn = document.querySelector(".submit");
 var clearscoresbtn = document.querySelector('.clear-score');
 var time = 20;
 document.querySelector('#timer').textContent = "Time: " + time;
+var scorelist = document.querySelector('.score-list');
+
+
 // Start Quiz and clear intro page
 
 var clock;
@@ -79,11 +82,23 @@ for(let i = 0; i < answers.length; ++i) {
 function showScores(event) {
     document.querySelector(".results").style.display = "none";
     document.querySelector('.highscores').style.display = "block";
-    localStorage.setItem(document.querySelector('#name').value, time);
+    var key = document.querySelector('#name').value;
+    localStorage.setItem(key, time);
+    //sortStorage();
+    displayStorage();
+}
+
+function displayStorage() {
+    for(var i = 0; i < localStorage.length; ++i) {
+        var entry = document.createElement('li');
+        entry.textContent = localStorage.key(i) + ' - ' + localStorage.getItem(localStorage.key(i));
+        scorelist.appendChild(entry);
+    }  
 }
 
 function clearScores() {
     localStorage.clear();
+    scorelist.textContent = "";
 }
 
 
