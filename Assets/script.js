@@ -84,16 +84,40 @@ function showScores(event) {
     document.querySelector('.highscores').style.display = "block";
     var key = document.querySelector('#name').value;
     localStorage.setItem(key, time);
-    //sortStorage();
-    displayStorage();
+    var names = sortStorage();
+    displayStorage(names);
 }
 
-function displayStorage() {
-    for(var i = 0; i < localStorage.length; ++i) {
+function displayStorage(names) {
+    for(var i = names.length-1; i >= 0; --i) {
         var entry = document.createElement('li');
-        entry.textContent = localStorage.key(i) + ' - ' + localStorage.getItem(localStorage.key(i));
+        var person = names[i];
+        var score = Number(localStorage.getItem(names[i]));
+        entry.textContent = person + ' - ' + score;
         scorelist.appendChild(entry);
     }  
+}
+
+function sortStorage() {
+    var scores = [];
+    var names = [];
+    for(var i = 0; i < localStorage.length; ++i) {
+        scores.push(Number(localStorage.getItem(localStorage.key(i))));
+    }
+    scores.sort((a, b) => a - b); // got this piece of code from https://dmitripavlutin.com/javascript-array-sort-numbers/ to sort array numerically
+
+    for(var i = 0; i < scores.length; ++i) {
+        for(var j = 0; j < localStorage.length; ++j) {
+            if(localStorage.getItem(localStorage.key(j)) == scores[i]) {
+                if(!names.includes(localStorage.key(j))) {
+                    names.push(localStorage.key(j));
+                }
+            }
+        }
+    }
+
+    return names;
+
 }
 
 function clearScores() {
