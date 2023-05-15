@@ -1,7 +1,7 @@
 var q1 = document.querySelector(".question-1");
 var submitbtn = document.querySelector(".submit");
 var clearscoresbtn = document.querySelector('.clear-score');
-var time = 50;
+var time = 70;
 document.querySelector('#timer').textContent = "Time: " + time;
 var scorelist = document.querySelector('.score-list');
 var viewscores = document.querySelector('#view-scores');
@@ -27,7 +27,7 @@ startbtn.addEventListener("click", function() {
                 section.style.display = "none";
             });
             document.querySelector('.results').style.display = "block";
-            document.querySelector(".results p").textContent += " " + time;
+            document.querySelector(".results p").textContent = "Your final socre is " + time;
         }
         }, 1000);
 });
@@ -42,10 +42,11 @@ if(event.target.className == "correct") {
     document.querySelector('#timer').textContent = "Time: " + 0;
     clearInterval(clock);
     time = 0;
-    var nextQuestion = questionNumber + 1;
-    document.querySelector('.question-' + nextQuestion).style.display = "none";
+    document.querySelectorAll('main > section').forEach(function(section){
+        section.style.display = "none";
+    });
     document.querySelector('.results').style.display = "block";
-    document.querySelector(".results p").textContent += " " + 0;
+    document.querySelector(".results p").textContent = "Your final socre is " + 0;
     document.querySelector("#status-" + 5).textContent = "Inorrect!";
     setInterval(function() {document.querySelector("#status-" + 5).textContent = ""}, 1000);
   } else {
@@ -70,7 +71,7 @@ function selectAnswer(event) { //fix this
         document.querySelector(".question-5").style.display = "none";
         document.querySelector(".results").style.display = "block";
         clearInterval(clock);
-        document.querySelector(".results p").textContent += " " + time;
+        document.querySelector(".results p").textContent = "Your final socre is " + time;
     }
    
 }
@@ -83,6 +84,7 @@ for(let i = 0; i < answers.length; ++i) {
 function showScores(event) {
     document.querySelector(".results").style.display = "none";
     document.querySelector('#highscores').style.display = "block";
+    viewscores.disabled = true;
     var key = document.querySelector('#name').value;
     localStorage.setItem(key, time);
     var names = sortStorage();
