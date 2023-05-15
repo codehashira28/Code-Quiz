@@ -84,7 +84,7 @@ function selectAnswer(event) {
    
 }
 
-// adds the capability of all multiple choice answers to be selectable and run the 'selectAnswer' function
+// adds the capability of all multiple choice answers to be clickable and run the 'selectAnswer' function
 
 var answers = document.querySelectorAll('span');
 for(let i = 0; i < answers.length; ++i) {
