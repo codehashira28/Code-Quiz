@@ -38,6 +38,7 @@ startbtn.addEventListener("click", function() {
 function showStatus(event, questionNumber) {
 if(event.target.className == "correct") {
   document.querySelector("#status-" + questionNumber).textContent = "Correct!";
+  document.querySelector("#status-" + questionNumber).style.color = "green";
   setInterval(function() {document.querySelector("#status-" + questionNumber).textContent = ""}, 1000);
   } else {
   time-=10;
@@ -51,12 +52,14 @@ if(event.target.className == "correct") {
     document.querySelector('.results').style.display = "block";
     document.querySelector(".results p").textContent = "Your final socre is " + 0;
     document.querySelector("#status-" + 5).textContent = "Inorrect!";
+    document.querySelector("#status-" + 5).style.color = "red";
     setInterval(function() {document.querySelector("#status-" + 5).textContent = ""}, 1000);
   } else {
     document.querySelector('#timer').textContent = "Time: " + time;
   }
   
   document.querySelector("#status-" + questionNumber).textContent = "Inorrect!";
+  document.querySelector("#status-" + questionNumber).style.color = "red";
   setInterval(function() {document.querySelector("#status-" + questionNumber).textContent = ""}, 1000);
   }
 }
