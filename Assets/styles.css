@@ -71,3 +71,7 @@ span {
     font-size: 1rem;
     margin-left: 0.5rem;;
 }
+
+a:hover, button:hover, span:hover {
+    opacity: 0.8;
+}
