@@ -12,7 +12,7 @@ N/A
 
 ## Usage
 
-The Code Quiz opens up with an introductory page with "Code Quiz Challenge" heading and a paragraph containing quiz instructions. Once the quiz starts, the user will be timed to complete answering all five questions and a score will be given once all questions are answered or time runs out. Time will be deducted 10 seconds for every question answered incorrectly. At the end of the quiz, the user will be given their score and will be prompted to enter their initials so their score can be added to the high scores list. Once submitted, the user is shown a high scores page that displays all participating scores from highest to lowest scores. 
+The Code Quiz opens up with an introductory page with "Coding Quiz Challenge" heading and a paragraph containing quiz instructions. Once the quiz starts, the user will be timed to complete answering all five questions and a score will be given once all questions are answered or time runs out. Time will be deducted 10 seconds for every question answered incorrectly. At the end of the quiz, the user will be given their score and will be prompted to enter their initials so their score can be added to the high scores list. Once submitted, the user is shown a high scores page that displays all participating scores from highest to lowest scores. 
 
 
 ![Code Quiz](./Assets/Code-Quiz.png)
@@ -20,3 +20,5 @@ The Code Quiz opens up with an introductory page with "Code Quiz Challenge" head
 ## Credits
 
 https://dmitripavlutin.com/javascript-array-sort-numbers/
+
+Project design and questions were inspired by the mock up.
